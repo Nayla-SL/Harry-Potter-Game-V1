@@ -2,7 +2,7 @@ package ar.com.ada.online.second.tp1;
 
 import java.util.Objects;
 
-public class Wizards extends Character{
+public class Wizards extends Character {
     protected String magicWand;
 
     //constructor
@@ -23,17 +23,16 @@ public class Wizards extends Character{
 
     // Methods
 
-    public void isDarkOrNot (boolean darkWizard){
+    public void isDarkOrNot(boolean darkWizard) {
 
     }
-
 
 
 
     // Overrides
 
     @Override
-    public boolean equals(Object obj){
+    public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         Wizards that = (Wizards) obj;
@@ -42,18 +41,20 @@ public class Wizards extends Character{
                 lifeSpan.equals(that.lifeSpan) &&
                 magicEnergy.equals(that.magicEnergy) &&
                 spells.equals(that.spells) &&
+                typeOfCharacter.equals(that.typeOfCharacter) &&
                 magicWand.equals(that.magicWand);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, location, lifeSpan, magicEnergy, spells, magicWand);
+        return Objects.hash(name, location, lifeSpan, magicEnergy, spells, typeOfCharacter, magicWand);
     }
 
     @Override
     public String toString() {
         return String.format(
-                "Character{ Name= %s \n Location= %d \n Life span= %d \n Magic energy= %d \n Spells= %s \n Magic Wand = %s \n}",
+                "Character{ Type of Character = %s \n Name= %s \n Location= %d \n Life span= %d \n Magic energy= %d \n Spells= %s \n Magic Wand = %s \n}",
+                typeOfCharacter,
                 name,
                 location,
                 lifeSpan,
@@ -65,6 +66,3 @@ public class Wizards extends Character{
 }
 
 
-
-
-}
