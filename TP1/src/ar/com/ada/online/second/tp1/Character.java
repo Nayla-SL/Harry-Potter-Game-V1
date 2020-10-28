@@ -1,5 +1,8 @@
 package ar.com.ada.online.second.tp1;
 
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Character {
@@ -9,6 +12,8 @@ public class Character {
     protected Integer magicEnergy;
     protected String spells;
     protected String typeOfCharacter;
+    protected ArrayList<String> Spells;
+
 
 
     //constructor
@@ -89,12 +94,13 @@ public class Character {
                 lifeSpan.equals(that.lifeSpan) &&
                 magicEnergy.equals(that.magicEnergy) &&
                 spells.equals(that.spells) &&
-                typeOfCharacter.equals(that.typeOfCharacter);
+                typeOfCharacter.equals(that.typeOfCharacter) &&
+                Spells.equals(that.Spells);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, location, lifeSpan, magicEnergy, spells, typeOfCharacter);
+        return Objects.hash(name, location, lifeSpan, magicEnergy, spells, typeOfCharacter, Spells);
     }
 
     @Override
@@ -106,7 +112,7 @@ public class Character {
                 location,
                 lifeSpan,
                 magicEnergy,
-                spells);
+                Spells);
     }
 
 

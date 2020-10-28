@@ -8,6 +8,10 @@ public class Main {
         Scanner keyboard = new Scanner(System.in);
 
         System.out.println("The game begins");
+        System.out.println("");
+
+
 
     }
-}
+    }
+

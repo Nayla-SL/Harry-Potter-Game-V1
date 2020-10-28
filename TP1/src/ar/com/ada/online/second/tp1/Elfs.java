@@ -7,8 +7,22 @@ public class Elfs extends Character {
 
     //methods
 
-    public void isFreeOrNot (boolean freeElf){
+    public boolean isFreeOrNot(boolean freeElf, int counterAttackSpells) {
+        for (int i = 0; i < 6; i++) {
+            switch (spells.getClass().getSimpleName()) {
+                case "Attack":
+                    counterAttackSpells++;
+                default:
+                    counterAttackSpells = counterAttackSpells;
+            }
+        }
+        if (counterAttackSpells > 3) {
+            freeElf = true;
+        } else {
+            freeElf = false;
+        }
 
+        return freeElf;
     }
 
 
@@ -24,12 +38,13 @@ public class Elfs extends Character {
                 lifeSpan.equals(that.lifeSpan) &&
                 magicEnergy.equals(that.magicEnergy) &&
                 spells.equals(that.spells) &&
-                typeOfCharacter.equals(that.typeOfCharacter);
+                typeOfCharacter.equals(that.typeOfCharacter) &&
+                Spells.equals(that.Spells);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, location, lifeSpan, magicEnergy, spells, typeOfCharacter);
+        return Objects.hash(name, location, lifeSpan, magicEnergy, spells, typeOfCharacter, Spells);
     }
 
     @Override
@@ -41,7 +56,7 @@ public class Elfs extends Character {
                 location,
                 lifeSpan,
                 magicEnergy,
-                spells);
+                Spells);
     }
 
 

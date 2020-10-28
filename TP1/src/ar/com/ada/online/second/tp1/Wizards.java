@@ -23,10 +23,23 @@ public class Wizards extends Character {
 
     // Methods
 
-    public void isDarkOrNot(boolean darkWizard) {
+    public boolean isDarkOrNot(boolean darkWizard, int counterAttackSpells) {
+        for (int i = 0; i < 6; i++) {
+            switch (spells.getClass().getSimpleName()) {
+                case "Attack":
+                    counterAttackSpells++;
+                default:
+                    counterAttackSpells = counterAttackSpells;
+            }
+        }
+        if (counterAttackSpells > 3) {
+            darkWizard = true;
+        } else {
+            darkWizard = false;
+        }
 
+        return darkWizard;
     }
-
 
 
     // Overrides
