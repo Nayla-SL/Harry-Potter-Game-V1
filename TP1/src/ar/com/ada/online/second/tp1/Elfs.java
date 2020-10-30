@@ -9,7 +9,7 @@ public class Elfs extends Character {
 
     public boolean isFreeOrNot(boolean freeElf, int counterAttackSpells) {
         for (int i = 0; i < 6; i++) {
-            switch (spells.getClass().getSimpleName()) {
+            switch (Spells.getClass().getSimpleName()) {
                 case "Attack":
                     counterAttackSpells++;
                 default:
@@ -37,14 +37,13 @@ public class Elfs extends Character {
                 name.equals(that.name) &&
                 lifeSpan.equals(that.lifeSpan) &&
                 magicEnergy.equals(that.magicEnergy) &&
-                spells.equals(that.spells) &&
                 typeOfCharacter.equals(that.typeOfCharacter) &&
                 Spells.equals(that.Spells);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, location, lifeSpan, magicEnergy, spells, typeOfCharacter, Spells);
+        return Objects.hash(name, location, lifeSpan, magicEnergy, typeOfCharacter, Spells);
     }
 
     @Override

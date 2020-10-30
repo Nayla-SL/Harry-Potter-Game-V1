@@ -10,7 +10,6 @@ public class Character {
     protected Integer location;
     protected Integer lifeSpan;
     protected Integer magicEnergy;
-    protected String spells;
     protected String typeOfCharacter;
     protected ArrayList<String> Spells;
 
@@ -54,14 +53,6 @@ public class Character {
         this.magicEnergy = magicEnergy;
     }
 
-    public String getSpells() {
-        return spells;
-    }
-
-    public void setSpells(String spells) {
-        this.spells = spells;
-    }
-
     public String getTypeOfCharacter() {
         return typeOfCharacter;
     }
@@ -93,14 +84,13 @@ public class Character {
                 name.equals(that.name) &&
                 lifeSpan.equals(that.lifeSpan) &&
                 magicEnergy.equals(that.magicEnergy) &&
-                spells.equals(that.spells) &&
                 typeOfCharacter.equals(that.typeOfCharacter) &&
                 Spells.equals(that.Spells);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, location, lifeSpan, magicEnergy, spells, typeOfCharacter, Spells);
+        return Objects.hash(name, location, lifeSpan, magicEnergy, typeOfCharacter, Spells);
     }
 
     @Override

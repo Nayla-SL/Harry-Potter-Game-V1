@@ -21,11 +21,52 @@ public class Wizards extends Character {
         this.magicWand = magicWand;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getLocation() {
+        return location;
+    }
+
+    public void setLocation(Integer location) {
+        this.location = location;
+    }
+
+    public Integer getLifeSpan() {
+        return lifeSpan;
+    }
+
+    public void setLifeSpan(Integer lifeSpan) {
+        this.lifeSpan = lifeSpan;
+    }
+
+    public Integer getMagicEnergy() {
+        return magicEnergy;
+    }
+
+    public void setMagicEnergy(Integer magicEnergy) {
+        this.magicEnergy = magicEnergy;
+    }
+
+
+    public String getTypeOfCharacter() {
+        return typeOfCharacter;
+    }
+
+    public void setTypeOfCharacter(String typeOfCharacter) {
+        this.typeOfCharacter = typeOfCharacter;
+    }
+
     // Methods
 
     public boolean isDarkOrNot(boolean darkWizard, int counterAttackSpells) {
         for (int i = 0; i < 6; i++) {
-            switch (spells.getClass().getSimpleName()) {
+            switch (Spells.getClass().getSimpleName()) {
                 case "Attack":
                     counterAttackSpells++;
                 default:
@@ -53,14 +94,13 @@ public class Wizards extends Character {
                 name.equals(that.name) &&
                 lifeSpan.equals(that.lifeSpan) &&
                 magicEnergy.equals(that.magicEnergy) &&
-                spells.equals(that.spells) &&
                 typeOfCharacter.equals(that.typeOfCharacter) &&
                 magicWand.equals(that.magicWand);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, location, lifeSpan, magicEnergy, spells, typeOfCharacter, magicWand);
+        return Objects.hash(name, location, lifeSpan, magicEnergy, typeOfCharacter, magicWand, Spells);
     }
 
     @Override
@@ -72,8 +112,8 @@ public class Wizards extends Character {
                 location,
                 lifeSpan,
                 magicEnergy,
-                spells,
-                magicWand);
+                magicWand,
+                Spells);
     }
 
 }
