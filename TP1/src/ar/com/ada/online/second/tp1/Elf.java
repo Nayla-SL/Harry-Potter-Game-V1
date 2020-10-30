@@ -2,14 +2,14 @@ package ar.com.ada.online.second.tp1;
 
 import java.util.Objects;
 
-public class Elfs extends Character {
+public class Elf extends Character {
 
 
     //methods
 
     public boolean isFreeOrNot(boolean freeElf, int counterAttackSpells) {
         for (int i = 0; i < 6; i++) {
-            switch (Spells.getClass().getSimpleName()) {
+            switch (spells.getClass().getSimpleName()) {
                 case "Attack":
                     counterAttackSpells++;
                 default:
@@ -32,18 +32,18 @@ public class Elfs extends Character {
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
-        Elfs that = (Elfs) obj;
+        Elf that = (Elf) obj;
         return location == that.location &&
                 name.equals(that.name) &&
                 lifeSpan.equals(that.lifeSpan) &&
                 magicEnergy.equals(that.magicEnergy) &&
                 typeOfCharacter.equals(that.typeOfCharacter) &&
-                Spells.equals(that.Spells);
+                spells.equals(that.spells);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, location, lifeSpan, magicEnergy, typeOfCharacter, Spells);
+        return Objects.hash(name, location, lifeSpan, magicEnergy, typeOfCharacter, spells);
     }
 
     @Override
@@ -55,7 +55,7 @@ public class Elfs extends Character {
                 location,
                 lifeSpan,
                 magicEnergy,
-                Spells);
+                spells);
     }
 
 

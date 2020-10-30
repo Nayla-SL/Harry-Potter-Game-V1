@@ -2,23 +2,24 @@ package ar.com.ada.online.second.tp1;
 
 import java.util.Objects;
 
-public class Wizards extends Character {
-    protected String magicWand;
+public class Wizard extends Character {
+    protected Wand wand;
 
     //constructor
 
 
-    public Wizards() {
+    public Wizard() {
     }
 
     // getters and setters
 
-    public String getMagicWand() {
-        return magicWand;
+
+    public Wand getWand() {
+        return wand;
     }
 
-    public void setMagicWand(String magicWand) {
-        this.magicWand = magicWand;
+    public void setWand(Wand wand) {
+        this.wand = wand;
     }
 
     public String getName() {
@@ -62,11 +63,12 @@ public class Wizards extends Character {
         this.typeOfCharacter = typeOfCharacter;
     }
 
+
     // Methods
 
     public boolean isDarkOrNot(boolean darkWizard, int counterAttackSpells) {
         for (int i = 0; i < 6; i++) {
-            switch (Spells.getClass().getSimpleName()) {
+            switch (spells.getClass().getSimpleName()) {
                 case "Attack":
                     counterAttackSpells++;
                 default:
@@ -89,31 +91,31 @@ public class Wizards extends Character {
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
-        Wizards that = (Wizards) obj;
+        Wizard that = (Wizard) obj;
         return location == that.location &&
                 name.equals(that.name) &&
                 lifeSpan.equals(that.lifeSpan) &&
                 magicEnergy.equals(that.magicEnergy) &&
                 typeOfCharacter.equals(that.typeOfCharacter) &&
-                magicWand.equals(that.magicWand);
+                wand.equals(that.wand);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, location, lifeSpan, magicEnergy, typeOfCharacter, magicWand, Spells);
+        return Objects.hash(name, location, lifeSpan, magicEnergy, typeOfCharacter, wand, spells);
     }
 
     @Override
     public String toString() {
         return String.format(
-                "Character{ Type of Character = %s \n Name= %s \n Location= %d \n Life span= %d \n Magic energy= %d \n Spells= %s \n Magic Wand = %s \n}",
+                "Character{ Type of Character = %s \n Name= %s \n Location= %d \n Life span= %d \n Magic energy= %d \n Magic Wand = %s \n Spells= %s \n}",
                 typeOfCharacter,
                 name,
                 location,
                 lifeSpan,
                 magicEnergy,
-                magicWand,
-                Spells);
+                wand,
+                spells);
     }
 
 }

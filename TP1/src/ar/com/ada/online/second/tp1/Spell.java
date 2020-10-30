@@ -2,30 +2,30 @@ package ar.com.ada.online.second.tp1;
 
 import java.util.ArrayList;
 
-public class Spells {
+public class Spell {
 
     protected int magicEnergySpent;
     protected String name;
 
     // Constructor
 
-    public Spells(int magicEnergySpent, String name) {
+    public Spell(int magicEnergySpent, String name) {
         this.name = name;
         this.magicEnergySpent = magicEnergySpent;
 
     }
 
-    public Spells(String name, int magicEnergySpent) {
+    public Spell(String name, int magicEnergySpent) {
         this.name = name;
         this.magicEnergySpent = magicEnergySpent;
 
     }
 
-    public Spells(int magicEnergySpent) {
+    public Spell(int magicEnergySpent) {
         this.magicEnergySpent = magicEnergySpent;
     }
 
-    public Spells(String name) {
+    public Spell(String name) {
         this.name = name;
     }
 

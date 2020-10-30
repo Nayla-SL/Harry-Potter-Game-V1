@@ -1,16 +1,16 @@
 package ar.com.ada.online.second.tp1;
 
-public class Wands {
+public class Wand {
     private int points;
     private String name;
 
 
-    public Wands(int points, String name) {
+    public Wand(int points, String name) {
         this.points = points;
         this.name = name;
     }
 
-    public Wands (){}
+    public Wand(){}
 
 
 
@@ -31,6 +31,10 @@ public class Wands {
     }
 
 
-
-
+    @Override
+    public String toString() {
+        return "Wand{" +
+                "name='" + name + '\'' +
+                '}';
+    }
 }

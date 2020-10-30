@@ -1,10 +1,10 @@
 package ar.com.ada.online.second.tp1;
 
-public class RecoverySpells extends Spells {
+public class RecoverySpell extends Spell {
     private int energyRecovered;
 
     // Constructor
-    public RecoverySpells(int magicEnergySpent, int energyRecovered) {
+    public RecoverySpell(int magicEnergySpent, int energyRecovered) {
         super(magicEnergySpent);
         this.energyRecovered = energyRecovered;
     }

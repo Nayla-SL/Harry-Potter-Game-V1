@@ -1,10 +1,10 @@
 package ar.com.ada.online.second.tp1;
 
-public class AttackSpells extends Spells {
+public class AttackSpell extends Spell {
     private int damageMade;
 
     // Constructor
-    public AttackSpells(String name, int magicEnergySpent, int damageMade) {
+    public AttackSpell(String name, int magicEnergySpent, int damageMade) {
         super(magicEnergySpent);
         name = name;
         this.damageMade = damageMade;

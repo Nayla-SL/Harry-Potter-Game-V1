@@ -1,6 +1,5 @@
 package ar.com.ada.online.second.tp1;
 
-import java.awt.event.WindowAdapter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -8,32 +7,30 @@ import java.util.Scanner;
 
 public class GameActions {
 
-    public static void startGame() {
+    public static Character startGame() {
 
+        Character auxiliar = new Character();
         Scanner keyboard = new Scanner(System.in);
         int option;
-            System.out.println("Player one, you choose:");
-            System.out.println("Digitize what character you want");
-            System.out.println("1- Wizard");
-            System.out.println("2- Elf");
-            System.out.print("Option: ");
-            option = keyboard.nextInt();
+        System.out.println("Player one, you choose:");
+        System.out.println("Digitize what character you want");
+        System.out.println("1- Wizard");
+        System.out.println("2- Elf");
+        System.out.print("Option: ");
+        option = keyboard.nextInt();
 
         switch (option) {
             case 1:
                 //mago
-                gameWizard();// metodo de mago y las elecciones para el juego
-                System.out.println();
-                WandWizard();//metodo de las varitas
-                SpellSelection();//metodo para elegir hechizos
-
-                break;
+               return gameWizard();// metodo de mago y las elecciones para el juego
             case 2:
-                Elfs Player1Elf = new Elfs();
+                Elf Player1Elf = new Elf();
                 gameElf(); //metodo de elfo y las elecciones para el juego
                 SpellSelection();//metodo para elegir hechizos
                 break;
-            default: break;
+            default:
+                break;
+
         }
 
 
@@ -41,13 +38,13 @@ public class GameActions {
 
         System.out.println("");
 
-
+        return auxiliar;
     }
 
-    public static void gameWizard() {
+    public static Wizard gameWizard() {
         int option;
 
-        Wizards Player1Wizard = new Wizards();
+        Wizard Player1Wizard = new Wizard();
         Scanner keyboard = new Scanner(System.in);
         //selecciona mago
         System.out.print("Choose and type your name: ");
@@ -63,49 +60,38 @@ public class GameActions {
         Player1Wizard.setLocation(keyboard.nextInt());
         System.out.println("");
 
-        WandWizard();
+        Player1Wizard.setLifeSpan(100);
+        Player1Wizard.setMagicEnergy(100);
+        Player1Wizard.setTypeOfCharacter("wizard");
+        Player1Wizard.setWand(WandWizard());
 
+//        SpellSelection();
+        return Player1Wizard;
     }
 
     //    metodo de varitas
-    public static int WandWizard() {
-        String auxiliarString;
-        int auxiliarInt;
-//        ArrayList<String> nWand = new ArrayList<String>();
-//
-//        nWand.add("Madera de serpiente: +4 attacking points");
-//        nWand.add("Nogal negro: +5 attacking points");
-//        nWand.add("Sauce: +2 attacking points");
-//        nWand.add("Sauco: +3 attacking points");
-//        nWand.add("Diamond: +4 attacking points");
-//        nWand.add("Alamo temblon: +5 attacking points");
-//        System.out.println("Magic wands:\n" + nWand);
-//        System.out.println();
-//        Random random = new Random();
-//        for (int i = 0; i < nWand.size(); i++) {
-//
-//        }
-        List<Wands> nWand = new ArrayList<>();
-        nWand.add(new Wands(4, "Madera de serpiente: +4 attacking points"));
-        nWand.add(new Wands(5, "Nogal negro: +5 attacking points"));
-        nWand.add(new Wands(2, "Sauce: +2 attacking points"));
-        nWand.add(new Wands(3, "Sauco: +3 attacking points"));
-        nWand.add(new Wands(4, "Diamond: +4 attacking points"));
-        nWand.add(new Wands(5, "Alamo temblon: +5 attacking points"));
-        System.out.println("Magic wands:\n" + nWand);
+    public static Wand WandWizard() {
+
+        List<Wand> nWand = new ArrayList<>();
+        nWand.add(new Wand(4, "Madera de serpiente: +4 attacking points"));
+        nWand.add(new Wand(5, "Nogal negro: +5 attacking points"));
+        nWand.add(new Wand(2, "Sauce: +2 attacking points"));
+        nWand.add(new Wand(3, "Sauco: +3 attacking points"));
+        nWand.add(new Wand(4, "Diamond: +4 attacking points"));
+        nWand.add(new Wand(5, "Alamo temblon: +5 attacking points"));
+        System.out.println("Magic wands:\n" + nWand + "\n");
         System.out.println();
         Random random = new Random();
         for (int i = 0; i < nWand.size(); i++) {
 
         }
 
-        Wands Player1Wand = new Wands();
-        Player1Wand = Wands.get(random.nextInt(nWand.size()));
-        System.out.println("The wand " + " has selected you.");
+        Wand PlayerWand = new Wand();
+        PlayerWand = nWand.get(random.nextInt(nWand.size()));
+        System.out.println("The wand " + PlayerWand +" has selected you.");
 
-        auxiliarInt = 1;
-        return auxiliarInt;
-        //faltaria guardar que varita le toca a cada jugador, porque segun la varita le suma puntos de ataque
+        return PlayerWand;
+
     }
 
     public static void gameElf() {
@@ -135,7 +121,6 @@ public class GameActions {
 
         Scanner keyboard = new Scanner(System.in);
         int option;
-        char response;
 
         System.out.println();
         System.out.println("ATTENTION !!!");
@@ -169,6 +154,6 @@ public class GameActions {
         );
         System.out.print("Option: ");
         option = keyboard.nextInt();
-//    }
-//}
+    }
+}
 
