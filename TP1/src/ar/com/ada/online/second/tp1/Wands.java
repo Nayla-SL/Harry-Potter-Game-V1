@@ -4,6 +4,16 @@ public class Wands {
     private int points;
     private String name;
 
+
+    public Wands(int points, String name) {
+        this.points = points;
+        this.name = name;
+    }
+
+    public Wands (){}
+
+
+
     public int getPoints() {
         return points;
     }
@@ -21,10 +31,6 @@ public class Wands {
     }
 
 
-    public Wands(int points, String name) {
-        this.points = points;
-        this.name = name;
-    }
 
 
 }

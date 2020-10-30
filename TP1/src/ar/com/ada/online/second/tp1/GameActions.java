@@ -12,37 +12,35 @@ public class GameActions {
 
         Scanner keyboard = new Scanner(System.in);
         int option;
-        do {
-            do {
-                System.out.println("Player one, you choose:");
-                System.out.println("Digitize what character you want");
-                System.out.println("1- Wizard");
-                System.out.println("2- Elf");
-                System.out.print("Option: ");
-                option = keyboard.nextInt();
+            System.out.println("Player one, you choose:");
+            System.out.println("Digitize what character you want");
+            System.out.println("1- Wizard");
+            System.out.println("2- Elf");
+            System.out.print("Option: ");
+            option = keyboard.nextInt();
 
-            } while (option < 1 || option > 2);
-            switch (option) {
-                case 1:
-                    //mago
+        switch (option) {
+            case 1:
+                //mago
+                gameWizard();// metodo de mago y las elecciones para el juego
+                System.out.println();
+                WandWizard();//metodo de las varitas
+                SpellSelection();//metodo para elegir hechizos
 
-                    gameWizard();// metodo de mago y las elecciones para el juego
-                    System.out.println();
-                    WandWizard();//metodo de las varitas
-                    SpellSelection();//metodo para elegir hechizos
+                break;
+            case 2:
+                Elfs Player1Elf = new Elfs();
+                gameElf(); //metodo de elfo y las elecciones para el juego
+                SpellSelection();//metodo para elegir hechizos
+                break;
+            default: break;
+        }
 
-                    break;
-                case 2:
-                    Elfs Player1Elf = new Elfs();
-                    gameElf(); //metodo de elfo y las elecciones para el juego
-                    SpellSelection();//metodo para elegir hechizos
-                    break;
-            }
-            System.out.print("\nPlayer 2, you choose: ");
 
-            System.out.println("");
+        System.out.print("\nPlayer 2, you choose: ");
 
-//        } while
+        System.out.println("");
+
 
     }
 
@@ -69,8 +67,8 @@ public class GameActions {
 
     }
 
-//    metodo de varitas
-    public static int WandWizard(){
+    //    metodo de varitas
+    public static int WandWizard() {
         String auxiliarString;
         int auxiliarInt;
 //        ArrayList<String> nWand = new ArrayList<String>();
@@ -88,12 +86,12 @@ public class GameActions {
 //
 //        }
         List<Wands> nWand = new ArrayList<>();
-        nWand.add(new Wands (4, "Madera de serpiente: +4 attacking points"));
-        nWand.add(new Wands (5,"Nogal negro: +5 attacking points"));
-        nWand.add(new Wands (2, "Sauce: +2 attacking points"));
-        nWand.add(new Wands(3,"Sauco: +3 attacking points"));
-        nWand.add(new Wands(4,"Diamond: +4 attacking points"));
-        nWand.add(new Wands(5,"Alamo temblon: +5 attacking points"));
+        nWand.add(new Wands(4, "Madera de serpiente: +4 attacking points"));
+        nWand.add(new Wands(5, "Nogal negro: +5 attacking points"));
+        nWand.add(new Wands(2, "Sauce: +2 attacking points"));
+        nWand.add(new Wands(3, "Sauco: +3 attacking points"));
+        nWand.add(new Wands(4, "Diamond: +4 attacking points"));
+        nWand.add(new Wands(5, "Alamo temblon: +5 attacking points"));
         System.out.println("Magic wands:\n" + nWand);
         System.out.println();
         Random random = new Random();
@@ -168,7 +166,7 @@ public class GameActions {
         );
         System.out.printf("Recovery Spells: \n { \n",
                 "20. RECUPERA { magic energy recovered: 15, magic energy used 3} \n } \n"
-                );
+        );
         System.out.print("Option: ");
         option = keyboard.nextInt();
 //    }
