@@ -4,8 +4,9 @@ public class RecoverySpell extends Spell {
     private int energyRecovered;
 
     // Constructor
-    public RecoverySpell(int magicEnergySpent, int energyRecovered) {
+    public RecoverySpell(String name, int magicEnergySpent, int energyRecovered) {
         super(magicEnergySpent);
+        this.name = name;
         this.energyRecovered = energyRecovered;
     }
 
@@ -18,4 +19,32 @@ public class RecoverySpell extends Spell {
     public void setEnergyRecovered(int energyRecovered) {
         this.energyRecovered = energyRecovered;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName() {
+        this.name = name;
+    }
+
+    @Override
+    public void setMagicEnergySpent(int magicEnergySpent) {
+        super.setMagicEnergySpent(magicEnergySpent);
+    }
+
+    @Override
+    public int getMagicEnergySpent() {
+        return super.getMagicEnergySpent();
+    }
+
+    @Override
+    public String toString() {
+        return "Recovery Spell {" +
+                " name: " + name +
+                ", energy recovered: " + energyRecovered +
+                ", magic energy spent: " + magicEnergySpent +
+                "} ";
+    }
 }
+

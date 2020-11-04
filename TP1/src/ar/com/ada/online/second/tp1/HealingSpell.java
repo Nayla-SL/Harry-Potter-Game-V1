@@ -4,8 +4,9 @@ public class HealingSpell extends Spell {
     private int lifeRecovered;
 
     // Constructor
-    public HealingSpell(int magicEnergySpent, int lifeRecovered) {
+    public HealingSpell(String name, int magicEnergySpent, int lifeRecovered) {
         super(magicEnergySpent);
+        this.name = name;
         this.lifeRecovered = lifeRecovered;
     }
 
@@ -19,5 +20,30 @@ public class HealingSpell extends Spell {
         this.lifeRecovered = lifeRecovered;
     }
 
+    public String getName() {
+        return name;
+    }
 
+    public void setName() {
+        this.name = name;
+    }
+
+    @Override
+    public void setMagicEnergySpent(int magicEnergySpent) {
+        super.setMagicEnergySpent(magicEnergySpent);
+    }
+
+    @Override
+    public int getMagicEnergySpent() {
+        return super.getMagicEnergySpent();
+    }
+
+    @Override
+    public String toString() {
+        return "Healing Spell {" +
+                "name: " + name +
+                ", life recovered:" + lifeRecovered +
+                ", magic energy spent:" + magicEnergySpent +
+                "} ";
+    }
 }

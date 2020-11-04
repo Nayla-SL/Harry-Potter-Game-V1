@@ -33,8 +33,6 @@ public class Wand {
 
     @Override
     public String toString() {
-        return "Wand{" +
-                "name='" + name + '\'' +
-                '}';
+        return name + " +" + points + " attacking points";
     }
 }

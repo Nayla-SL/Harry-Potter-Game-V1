@@ -30,11 +30,11 @@ public class Wizard extends Character {
         this.name = name;
     }
 
-    public Integer getLocation() {
+    public String getLocation() {
         return location;
     }
 
-    public void setLocation(Integer location) {
+    public void setLocation(String location) {
         this.location = location;
     }
 
@@ -108,7 +108,7 @@ public class Wizard extends Character {
     @Override
     public String toString() {
         return String.format(
-                "Character{ Type of Character = %s \n Name= %s \n Location= %d \n Life span= %d \n Magic energy= %d \n Magic Wand = %s \n Spells= %s \n}",
+                "Character{\n Type of Character: %s \n Name: %s \n Location: %s \n Life span: %d \n Magic energy: %d \n Magic Wand: %s \n Spells: %s \n}",
                 typeOfCharacter,
                 name,
                 location,

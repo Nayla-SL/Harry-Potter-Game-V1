@@ -1,15 +1,15 @@
 package ar.com.ada.online.second.tp1;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Character {
     protected String name;
-    protected Integer location;
+    protected String location;
     protected Integer lifeSpan;
     protected Integer magicEnergy;
     protected String typeOfCharacter;
-    protected Spell spells;
-
+    protected List<Spell> spells;
 
 
     //constructor
@@ -26,11 +26,11 @@ public class Character {
         this.name = name;
     }
 
-    public Integer getLocation() {
+    public String getLocation() {
         return location;
     }
 
-    public void setLocation(Integer location) {
+    public void setLocation(String location) {
         this.location = location;
     }
 
@@ -56,6 +56,14 @@ public class Character {
 
     public void setTypeOfCharacter(String typeOfCharacter) {
         this.typeOfCharacter = typeOfCharacter;
+    }
+
+    public List<Spell> getSpells() {
+        return spells;
+    }
+
+    public void setSpells(List<Spell> spells) {
+        this.spells = spells;
     }
 
     //methods
@@ -93,7 +101,7 @@ public class Character {
     @Override
     public String toString() {
         return String.format(
-                "Character{ Type of Character = %s \n Name= %s \n Life span= %d \n Magic energy= %d \n Spells= %s \n Location= %d \n}",
+                "Character{ \n Type of Character: %s \n Name: %s  Location: %s \n Life span: %d \n Magic energy: %d \n Spells: %s \n}",
                 typeOfCharacter,
                 name,
                 location,

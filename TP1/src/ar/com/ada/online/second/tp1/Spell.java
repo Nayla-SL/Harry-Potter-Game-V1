@@ -15,19 +15,17 @@ public class Spell {
 
     }
 
-    public Spell(String name, int magicEnergySpent) {
-        this.name = name;
-        this.magicEnergySpent = magicEnergySpent;
-
-    }
-
     public Spell(int magicEnergySpent) {
+        this.name = name;
+        this.magicEnergySpent = this.magicEnergySpent;
+
+    }
+
+    public Spell() {
+        this.name = name;
         this.magicEnergySpent = magicEnergySpent;
     }
 
-    public Spell(String name) {
-        this.name = name;
-    }
 
     //Getter & Setter
 
@@ -47,4 +45,12 @@ public class Spell {
     public void setMagicEnergySpent(int magicEnergySpent) {
         this.magicEnergySpent = magicEnergySpent;
     }
+
+    @Override
+    public String toString() {
+        return "name: " + name +
+                "\nMagic energy spent: " + magicEnergySpent + "\n"
+                ;
+    }
 }
+

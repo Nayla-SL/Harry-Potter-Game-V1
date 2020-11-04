@@ -6,18 +6,25 @@ public class AttackSpell extends Spell {
     // Constructor
     public AttackSpell(String name, int magicEnergySpent, int damageMade) {
         super(magicEnergySpent);
-        name = name;
+        this.name = name;
         this.damageMade = damageMade;
     }
 
 
     //Getter & Setter
+    public int getDamageMade() {
+        return damageMade;
+    }
+
+    public void setDamageMade(int damageMade) {
+        this.damageMade = damageMade;
+    }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName() {
         this.name = name;
     }
 
@@ -31,11 +38,15 @@ public class AttackSpell extends Spell {
         return super.getMagicEnergySpent();
     }
 
-    public int getDamageMade() {
-        return damageMade;
-    }
 
-    public void setDamageMade(int damageMade) {
-        this.damageMade = damageMade;
+    @Override
+    public String toString() {
+        return "Attack Spell {" +
+                "name: " + name +
+                ", damage made: " + damageMade +
+                ", magic energy spent: " + magicEnergySpent +
+                "} ";
     }
 }
+
+
