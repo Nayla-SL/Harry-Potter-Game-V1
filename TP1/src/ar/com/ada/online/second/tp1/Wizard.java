@@ -4,6 +4,7 @@ import java.util.Objects;
 
 public class Wizard extends Character {
     protected Wand wand;
+    protected boolean darkWizard;
 
     //constructor
 
@@ -63,25 +64,23 @@ public class Wizard extends Character {
         this.typeOfCharacter = typeOfCharacter;
     }
 
+    public boolean isDarkWizard() {
+        return darkWizard;
+    }
+
+    public void setDarkWizard() {
+        this.darkWizard = darkWizard;
+    }
 
     // Methods
 
-    public boolean isDarkOrNot(boolean darkWizard, int counterAttackSpells) {
-        for (int i = 0; i < 6; i++) {
-            switch (spells.getClass().getSimpleName()) {
-                case "Attack":
-                    counterAttackSpells++;
-                default:
-                    counterAttackSpells = counterAttackSpells;
-            }
+    public void isDarkOrNot() {
+        int counterAttackSpells = 0;
+        for (int i = 0; i < this.spells.size(); i++) {
+            if (this.spells.get(i) instanceof AttackSpell)
+                counterAttackSpells++;
         }
-        if (counterAttackSpells > 3) {
-            darkWizard = true;
-        } else {
-            darkWizard = false;
-        }
-
-        return darkWizard;
+        darkWizard = (counterAttackSpells > 3);
     }
 
 
@@ -107,17 +106,23 @@ public class Wizard extends Character {
 
     @Override
     public String toString() {
-        return String.format(
-                "Character{\n Type of Character: %s \n Name: %s \n Location: %s \n Life span: %d \n Magic energy: %d \n Magic Wand: %s \n Spells: %s \n}",
+
+
+        String output = String.format(
+                "Character: \n Type of Character: %s \n Name: %s  Location: %s \n Life span: %d \n Magic energy: %d \n Magic Wand: %s \n Spells: \n Are you a dark wizard? %s",
                 typeOfCharacter,
                 name,
                 location,
                 lifeSpan,
                 magicEnergy,
                 wand,
-                spells);
+                darkWizard);
+        String spellsTxt = "\n\t";
+        for (int i = 0; i < spells.size(); i++) {
+            spellsTxt += "\t" + spellsTxt + spells.get(i).toString() + "\n";
+        }
+        output = output + spellsTxt;
+        return output;
     }
-
 }
-
 

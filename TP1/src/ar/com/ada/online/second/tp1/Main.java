@@ -7,14 +7,21 @@ public class Main {
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
 
-        Character Player1 = new Character();
-        Character Player2 = new Character();
+        Character Player1;
+        Character Player2;
         System.out.println("The game begins");
         System.out.println("");
-        Player1 = GameActions.selectionPart();
+        System.out.println("Player 1, you choose:");
+        Player1 = SelectionActions.selectionPart();
+        System.out.println("Player 1 information: \n" + Player1);
+
+        System.out.println("Player 2, you choose:");
+        Player2 = SelectionActions.selectionPart();
+        System.out.println("Player 2 information: \n" + Player2);
 
 
-        System.out.println(Player1);
+
+
 
     }
 }

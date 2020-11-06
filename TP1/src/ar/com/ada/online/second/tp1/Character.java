@@ -100,14 +100,20 @@ public class Character {
 
     @Override
     public String toString() {
-        return String.format(
-                "Character{ \n Type of Character: %s \n Name: %s  Location: %s \n Life span: %d \n Magic energy: %d \n Spells: %s \n}",
+
+        String output = String.format(
+                "Character{ \n Type of Character: %s \n Name: %s  Location: %s \n Life span: %d \n Magic energy: %d \n Spells: \n}",
                 typeOfCharacter,
                 name,
                 location,
                 lifeSpan,
-                magicEnergy,
-                spells);
+                magicEnergy);
+        String spellsTxt = "\n\t";
+        for (int i = 0; i < spells.size(); i++) {
+            spellsTxt += "\t" + spellsTxt + spells.get(i).toString() + "\n";
+        }
+        output = output + spellsTxt;
+        return output;
     }
 
 
