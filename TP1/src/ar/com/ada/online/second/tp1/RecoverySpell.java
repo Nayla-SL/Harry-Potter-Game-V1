@@ -5,8 +5,7 @@ public class RecoverySpell extends Spell {
 
     // Constructor
     public RecoverySpell(String name, int magicEnergySpent, int energyRecovered) {
-        super(magicEnergySpent);
-        this.name = name;
+        super(name, magicEnergySpent);
         this.energyRecovered = energyRecovered;
     }
 

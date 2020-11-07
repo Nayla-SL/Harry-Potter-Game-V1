@@ -6,7 +6,7 @@ public class SelectionActions {
 
     public static Character selectionPart() {
 
-        Character auxiliar = new Character();
+        Character auxCharacter;
         Scanner keyboard = new Scanner(System.in);
         int option;
         boolean aux = true;
@@ -29,11 +29,10 @@ public class SelectionActions {
                     return gameElf(); //metodo de elfo y las elecciones para el juego
                 default:
                     System.out.println("You must choose a valid option.");
-
+                    return null;
             }
         } while (aux);
 
-        return auxiliar;
     }
 
 
@@ -88,7 +87,9 @@ public class SelectionActions {
             System.out.println("You are a dark wizard.");
         else
             System.out.println("You are a white wizard");
+        playerWizard.configSpells();
         return playerWizard;
+
     }
 
     //    metodo de varitas
@@ -165,6 +166,7 @@ public class SelectionActions {
         playerElf.setLifeSpan(100);
         playerElf.setMagicEnergy(100);
         playerElf.setSpells(SpellSelection());
+        playerElf.configSpells();
         playerElf.isFreeOrNot();
         if (playerElf.isFreeElf())
             System.out.println("You are a free elf");
@@ -180,44 +182,45 @@ public class SelectionActions {
 
         Scanner keyboard = new Scanner(System.in);
         int option;
-        boolean aux = false;
-
-        do {
-            System.out.println();
-            System.out.println("ATTENTION !!!");
-            System.out.println();
-            System.out.println("You can only choose six spells in total\n");
-            System.out.printf("Attacking Spells { \n" +
-                    "1.	 BOMBARDA MAXIMA { attacks: 10, magic energy used: 5 }\n" +
-                    "2.  DESMAIUS { attacks: 15, magic energy used: 10 } \n" +
-                    "3.  EXPULSO { attacks: 20, magic energy used: 15 } \n" +
-                    "4.  LEVICORPUS { attacks: 12, magic energy used: 6 } \n" +
-                    "5.  REDUCTO { attacks: 20, magic energy used: 12 } \n" +
-                    "6.	 CONFRINGO { attacks: 15, magic energy used: 10 } \n" +
-                    "7.	 DEPRIMO { attacks: 10, magic energy used: 5 } \n" +
-                    "8.	 GLACIUS { attacks: 25, magic energy used: 20 } \n" +
-                    "9.	 INCENDIO { attacks: 25, magic energy used: 20 } \n" +
-                    "10. AVADA KEDAVRA { attacks: 100, magic energy used: 90 } \n" +
-                    "11. CRUCIATUS { attacks: 80, magic energy used: 70 } \n" +
-                    "12. IMPERIUS { attacks: 90, magic energy used: 80} \n }\n"
-            );
-            System.out.printf("Healing Spells { \n" +
-                    "13. ANAPNEO { recovered life points: 20, magic energy used: 20 } \n" +
-                    "14. BRAQUIAM EMENDO { recovered life points: 15, magic energy used: 18 }\n" +
-                    "15. EPISKEY { recovered life points: 10, magic energy used: 15 }\n" +
-                    "16. OSSIO DISPERSIMUS { recovered life points: 20, magic energy used: 18 }\n" +
-                    "17. REPARIFORS { recovered life points: 10, magic energy used: 10 }\n" +
-                    "18. FÉRULA { recovered life points: 15, magic energy used: 15 }\n" +
-                    "19. VULNERA SANENTUR { recovered life points: 15, magic energy used: 15\n } \n"
-            );
-            System.out.printf("Recovery Spells { \n" +
-                    "20. RECUPERA { magic energy recovered: 15, magic energy used 3} \n } \n"
-            );
 
 
-            List<Spell> PlayerChosenSpells = new ArrayList<>();
+        System.out.println();
+        System.out.println("ATTENTION !!!");
+        System.out.println();
+        System.out.println("You can only choose six spells in total\n");
+        System.out.printf("Attacking Spells { \n" +
+                "1.	 BOMBARDA MAXIMA { attacks: 10, magic energy used: 5 }\n" +
+                "2.  DESMAIUS { attacks: 15, magic energy used: 10 } \n" +
+                "3.  EXPULSO { attacks: 20, magic energy used: 15 } \n" +
+                "4.  LEVICORPUS { attacks: 12, magic energy used: 6 } \n" +
+                "5.  REDUCTO { attacks: 20, magic energy used: 12 } \n" +
+                "6.	 CONFRINGO { attacks: 15, magic energy used: 10 } \n" +
+                "7.	 DEPRIMO { attacks: 10, magic energy used: 5 } \n" +
+                "8.	 GLACIUS { attacks: 25, magic energy used: 20 } \n" +
+                "9.	 INCENDIO { attacks: 25, magic energy used: 20 } \n" +
+                "10. AVADA KEDAVRA { attacks: 100, magic energy used: 90 } \n" +
+                "11. CRUCIATUS { attacks: 80, magic energy used: 70 } \n" +
+                "12. IMPERIUS { attacks: 90, magic energy used: 80} \n }\n"
+        );
+        System.out.printf("Healing Spells { \n" +
+                "13. ANAPNEO { recovered life points: 20, magic energy used: 20 } \n" +
+                "14. BRAQUIAM EMENDO { recovered life points: 15, magic energy used: 18 }\n" +
+                "15. EPISKEY { recovered life points: 10, magic energy used: 15 }\n" +
+                "16. OSSIO DISPERSIMUS { recovered life points: 20, magic energy used: 18 }\n" +
+                "17. REPARIFORS { recovered life points: 10, magic energy used: 10 }\n" +
+                "18. FÉRULA { recovered life points: 15, magic energy used: 15 }\n" +
+                "19. VULNERA SANENTUR { recovered life points: 15, magic energy used: 15\n } \n"
+        );
+        System.out.printf("Recovery Spells { \n" +
+                "20. RECUPERA { magic energy recovered: 15, magic energy used 3} \n } \n"
+        );
 
-            for (int i = 0; i < 6; i++) {
+
+        List<Spell> PlayerChosenSpells = new ArrayList<>();
+        boolean aux;
+        for (int i = 0; i < 6; i++) {
+            do {
+                aux = false;
                 System.out.println("Choose your spell number " + (i + 1));
                 System.out.print("Option: ");
                 option = keyboard.nextInt();
@@ -238,45 +241,47 @@ public class SelectionActions {
                         PlayerChosenSpells.add(new AttackSpell("REDUCTO", 12, 20));
                         break;
                     case 6:
+                        PlayerChosenSpells.add(new AttackSpell("CONFRIGNO",10,15));
+                    case 7:
                         PlayerChosenSpells.add(new AttackSpell("DEPRIMO", 5, 10));
                         break;
-                    case 7:
+                    case 8:
                         PlayerChosenSpells.add(new AttackSpell("GLACIUS", 20, 25));
                         break;
-                    case 8:
+                    case 9:
                         PlayerChosenSpells.add(new AttackSpell("INCENDIO", 20, 25));
                         break;
-                    case 9:
+                    case 10:
                         PlayerChosenSpells.add(new AttackSpell("AVADA KEDAVRA", 90, 100));
                         break;
-                    case 10:
+                    case 11:
                         PlayerChosenSpells.add(new AttackSpell("CRUCIATUS", 70, 80));
                         break;
-                    case 11:
+                    case 12:
                         PlayerChosenSpells.add(new AttackSpell("IMPERIUS", 80, 90));
                         break;
-                    case 12:
+                    case 13:
                         PlayerChosenSpells.add(new HealingSpell("ANAPNEO", 20, 20));
                         break;
-                    case 13:
+                    case 14:
                         PlayerChosenSpells.add(new HealingSpell("BRAQUIAM EMENDO", 18, 15));
                         break;
-                    case 14:
+                    case 15:
                         PlayerChosenSpells.add(new HealingSpell("EPISKEY", 15, 10));
                         break;
-                    case 15:
+                    case 16:
                         PlayerChosenSpells.add(new HealingSpell("OSSIO DISPERSIMUS", 18, 20));
                         break;
-                    case 16:
+                    case 17:
                         PlayerChosenSpells.add(new HealingSpell("REPARIFORS", 10, 10));
                         break;
-                    case 17:
+                    case 18:
                         PlayerChosenSpells.add(new HealingSpell("FERULA", 15, 15));
                         break;
-                    case 18:
+                    case 19:
                         PlayerChosenSpells.add(new HealingSpell("VULNERA SANENTUR", 16, 20));
                         break;
-                    case 19:
+                    case 20:
                         PlayerChosenSpells.add(new RecoverySpell("RECUPERA", 3, 15));
                         break;
                     default:
@@ -284,9 +289,13 @@ public class SelectionActions {
                         System.out.println("You must choose a valid option.");
                 }
                 System.out.println("You can choose " + (6 - (i + 1)) + " more spells.");
-            }
+            } while (aux);
+        }
 
-            return PlayerChosenSpells;
-        } while (aux = false);
+
+        return PlayerChosenSpells;
+
     }
+
+
 }

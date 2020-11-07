@@ -3,7 +3,7 @@ package ar.com.ada.online.second.tp1;
 import java.util.List;
 import java.util.Objects;
 
-public class Character {
+public abstract class Character {
     protected String name;
     protected String location;
     protected Integer lifeSpan;
@@ -77,6 +77,8 @@ public class Character {
         return alive;
     }
 
+    public abstract void configSpells ();
+
 
     // Overrides
 
@@ -110,7 +112,7 @@ public class Character {
                 magicEnergy);
         String spellsTxt = "\n\t";
         for (int i = 0; i < spells.size(); i++) {
-            spellsTxt += "\t" + spellsTxt + spells.get(i).toString() + "\n";
+            spellsTxt = "\t" + spellsTxt + spells.get(i).toString() + "\n";
         }
         output = output + spellsTxt;
         return output;

@@ -4,9 +4,8 @@ public class AttackSpell extends Spell {
     private int damageMade;
 
     // Constructor
-    public AttackSpell(String name, int magicEnergySpent, int damageMade) {
-        super(magicEnergySpent);
-        this.name = name;
+    public AttackSpell( String name, int magicEnergySpent, int damageMade) {
+        super(name, magicEnergySpent);
         this.damageMade = damageMade;
     }
 

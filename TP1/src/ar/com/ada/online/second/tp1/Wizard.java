@@ -87,6 +87,34 @@ public class Wizard extends Character {
     // Overrides
 
     @Override
+    public void configSpells() {
+        if (darkWizard) {
+            for (int i = 0; i < this.spells.size(); i++) {
+                if (this.spells.get(i) instanceof AttackSpell) {
+                    AttackSpell attackSpell = (AttackSpell) this.spells.get(i);
+                    attackSpell.setDamageMade(attackSpell.getDamageMade() + 10 + wand.getPoints());
+                    if (this.spells.get(i) instanceof HealingSpell) {
+                        HealingSpell healingSpell = (HealingSpell) this.spells.get(i);
+                        healingSpell.setLifeRecovered(healingSpell.getLifeRecovered() - 10);
+                    }
+                }
+            }
+        } else {
+            for (int i = 0; i < this.spells.size(); i++) {
+                if (this.spells.get(i) instanceof RecoverySpell && lifeSpan <= 35) {
+                    RecoverySpell recoverySpell = (RecoverySpell) this.spells.get(i);
+                    recoverySpell.setEnergyRecovered(recoverySpell.getEnergyRecovered() + 10);
+                }
+                if (this.spells.get(i) instanceof AttackSpell) {
+                    AttackSpell attackSpell = (AttackSpell) this.spells.get(i);
+                    attackSpell.setDamageMade(attackSpell.getDamageMade() + wand.getPoints());
+                }
+            }
+        }
+    }
+
+
+    @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
@@ -109,7 +137,7 @@ public class Wizard extends Character {
 
 
         String output = String.format(
-                "Character: \n Type of Character: %s \n Name: %s  Location: %s \n Life span: %d \n Magic energy: %d \n Magic Wand: %s \n Spells: \n Are you a dark wizard? %s",
+                "Character: \n Type of Character: %s \n Name: %s  Location: %s \n Life span: %d \n Magic energy: %d \n Magic Wand: %s \n Are you a dark wizard? %s \n Spells: \n ",
                 typeOfCharacter,
                 name,
                 location,
@@ -119,7 +147,7 @@ public class Wizard extends Character {
                 darkWizard);
         String spellsTxt = "\n\t";
         for (int i = 0; i < spells.size(); i++) {
-            spellsTxt += "\t" + spellsTxt + spells.get(i).toString() + "\n";
+            spellsTxt = "\t" + spellsTxt + spells.get(i).toString() + "\n";
         }
         output = output + spellsTxt;
         return output;

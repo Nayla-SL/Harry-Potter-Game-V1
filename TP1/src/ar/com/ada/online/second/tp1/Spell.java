@@ -9,22 +9,14 @@ public class Spell {
 
     // Constructor
 
-    public Spell(int magicEnergySpent, String name) {
-        this.name = name;
-        this.magicEnergySpent = magicEnergySpent;
-
-    }
-
-    public Spell(int magicEnergySpent) {
-        this.name = name;
-        this.magicEnergySpent = this.magicEnergySpent;
-
-    }
-
-    public Spell() {
+    public Spell( String name, int magicEnergySpent) {
         this.name = name;
         this.magicEnergySpent = magicEnergySpent;
     }
+
+
+
+
 
 
     //Getter & Setter

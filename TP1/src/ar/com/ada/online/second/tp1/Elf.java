@@ -25,6 +25,34 @@ public class Elf extends Character {
     // Overrides
 
     @Override
+    public void configSpells() {
+        if (freeElf) {
+            for (int i = 0; i < this.spells.size(); i++) {
+                if (this.spells.get(i) instanceof AttackSpell) {
+                    AttackSpell attackSpell = (AttackSpell) this.spells.get(i);
+                    attackSpell.setDamageMade(attackSpell.getDamageMade() + 5);
+                }
+                if (this.spells.get(i) instanceof HealingSpell) {
+                    HealingSpell healingSpell = (HealingSpell) this.spells.get(i);
+                    healingSpell.setLifeRecovered(healingSpell.getLifeRecovered() + 5);
+                }
+                if (this.spells.get(i) instanceof RecoverySpell) {
+                    RecoverySpell recoverySpell = (RecoverySpell) this.spells.get(i);
+                    recoverySpell.setEnergyRecovered(recoverySpell.getEnergyRecovered() + 5);
+                }
+            }
+        } else {
+            for (int i = 0; i < this.spells.size(); i++) {
+                if (this.spells.get(i) instanceof HealingSpell) {
+                    HealingSpell healingSpell = (HealingSpell) this.spells.get(i);
+                    healingSpell.setLifeRecovered(healingSpell.getLifeRecovered() + 10);
+
+                }
+            }
+        }
+    }
+
+    @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
@@ -54,7 +82,7 @@ public class Elf extends Character {
                 magicEnergy);
         String spellsTxt = "\n\t";
         for (int i = 0; i < spells.size(); i++) {
-            spellsTxt += "\t" + spellsTxt + spells.get(i).toString() + "\n";
+            spellsTxt = "\t" + spellsTxt + spells.get(i).toString() + "\n";
         }
         output = output + spellsTxt;
         return output;

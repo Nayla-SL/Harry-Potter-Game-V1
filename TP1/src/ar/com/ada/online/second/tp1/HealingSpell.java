@@ -4,8 +4,8 @@ public class HealingSpell extends Spell {
     private int lifeRecovered;
 
     // Constructor
-    public HealingSpell(String name, int magicEnergySpent, int lifeRecovered) {
-        super(magicEnergySpent);
+    public HealingSpell( String name, int magicEnergySpent, int lifeRecovered) {
+        super(name, magicEnergySpent);
         this.name = name;
         this.lifeRecovered = lifeRecovered;
     }
