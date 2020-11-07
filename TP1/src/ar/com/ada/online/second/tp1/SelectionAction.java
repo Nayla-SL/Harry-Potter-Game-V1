@@ -2,7 +2,7 @@ package ar.com.ada.online.second.tp1;
 
 import java.util.*;
 
-public class SelectionActions {
+public class SelectionAction {
 
     public static Character selectionPart() {
 
@@ -106,7 +106,7 @@ public class SelectionActions {
                 "Madera de serpiente: +4 attacking points \n" +
                 "Nogal negro: +5 attacking points\n" +
                 "Sauce: +2 attacking points \n" +
-                "Sauco: +3 attacking points\n " +
+                "Sauco: +3 attacking points\n" +
                 "Diamond: +4 attacking points\n" +
                 "Alamo temblon: +5 attacking points\n"
         );
@@ -163,16 +163,17 @@ public class SelectionActions {
 
 
         System.out.println("");
+        playerElf.setTypeOfCharacter("Elf");
         playerElf.setLifeSpan(100);
         playerElf.setMagicEnergy(100);
         playerElf.setSpells(SpellSelection());
-        playerElf.configSpells();
         playerElf.isFreeOrNot();
         if (playerElf.isFreeElf())
             System.out.println("You are a free elf");
         else
             System.out.println("You are a house-elf");
 
+        playerElf.configSpells();
         return playerElf;
 
     }

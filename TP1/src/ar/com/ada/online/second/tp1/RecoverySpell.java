@@ -39,11 +39,10 @@ public class RecoverySpell extends Spell {
 
     @Override
     public String toString() {
-        return "Recovery Spell {" +
-                " name: " + name +
-                ", energy recovered: " + energyRecovered +
-                ", magic energy spent: " + magicEnergySpent +
-                "} ";
+        return "Recovery Spell" +
+                "\n\t name: " + name +
+                "\n\t energy recovered: " + energyRecovered +
+                "\n\t magic energy spent: " + magicEnergySpent + "\n";
     }
 }
 

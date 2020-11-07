@@ -137,7 +137,7 @@ public class Wizard extends Character {
 
 
         String output = String.format(
-                "Character: \n Type of Character: %s \n Name: %s  Location: %s \n Life span: %d \n Magic energy: %d \n Magic Wand: %s \n Are you a dark wizard? %s \n Spells: \n ",
+                " Type of Character: %s \n Name: %s \n Location: %s \n Life span: %d \n Magic energy: %d \n Magic Wand: %s \n Are you a dark wizard? %s \n Spells: ",
                 typeOfCharacter,
                 name,
                 location,
@@ -145,11 +145,11 @@ public class Wizard extends Character {
                 magicEnergy,
                 wand,
                 darkWizard);
-        String spellsTxt = "\n\t";
+        String spellsTxt = "\n";
         for (int i = 0; i < spells.size(); i++) {
-            spellsTxt = "\t" + spellsTxt + spells.get(i).toString() + "\n";
+            spellsTxt = "\t"+ spellsTxt + (i+1) + ") " + spells.get(i).toString();
         }
-        output = output + spellsTxt;
+        output = output + spellsTxt + "\n";
         return output;
     }
 }

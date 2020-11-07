@@ -58,7 +58,7 @@ public abstract class Character {
         this.typeOfCharacter = typeOfCharacter;
     }
 
-    public List<Spell> getSpells() {
+    public List<Spell> getSpells(int i) {
         return spells;
     }
 
@@ -68,7 +68,8 @@ public abstract class Character {
 
     //methods
 
-    public boolean isDeadOrAlive(boolean alive) {
+    public boolean isDeadOrAlive() {
+        boolean alive;
         if (lifeSpan <= 0) {
             alive = false;
         } else {
@@ -104,7 +105,7 @@ public abstract class Character {
     public String toString() {
 
         String output = String.format(
-                "Character{ \n Type of Character: %s \n Name: %s  Location: %s \n Life span: %d \n Magic energy: %d \n Spells: \n}",
+                "\n Type of Character: %s \n Name: %s \n Location: %s \n Life span: %d \n Magic energy: %d \n Spells: \n",
                 typeOfCharacter,
                 name,
                 location,

@@ -74,15 +74,16 @@ public class Elf extends Character {
     public String toString() {
 
         String output = String.format(
-                "Character{ \n Type of Character: %s \n Name: %s  Location: %s \n Life span: %d \n Magic energy: %d \n Spells: \n}",
+                " Type of Character: %s \n Name: %s \n Location: %s \n Life span: %d \n Magic energy: %d \n Are you a free elf? %s \n Spells:",
                 typeOfCharacter,
                 name,
                 location,
                 lifeSpan,
-                magicEnergy);
-        String spellsTxt = "\n\t";
+                magicEnergy,
+                freeElf);
+        String spellsTxt = "\n";
         for (int i = 0; i < spells.size(); i++) {
-            spellsTxt = "\t" + spellsTxt + spells.get(i).toString() + "\n";
+            spellsTxt = "\t" + spellsTxt + (i+1) +") " +spells.get(i).toString() + "\n";
         }
         output = output + spellsTxt;
         return output;

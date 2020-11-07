@@ -40,11 +40,10 @@ public class AttackSpell extends Spell {
 
     @Override
     public String toString() {
-        return "Attack Spell {" +
-                "name: " + name +
-                ", damage made: " + damageMade +
-                ", magic energy spent: " + magicEnergySpent +
-                "} ";
+        return "Attack Spell" +
+                "\n\t name: " + name +
+                "\n\t damage made: " + damageMade +
+                "\n\t magic energy spent: " + magicEnergySpent + "\n";
     }
 }
 

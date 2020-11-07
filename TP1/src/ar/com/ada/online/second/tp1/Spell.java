@@ -40,8 +40,8 @@ public class Spell {
 
     @Override
     public String toString() {
-        return "name: " + name +
-                "\nMagic energy spent: " + magicEnergySpent + "\n"
+        return "\t name: " + name +
+                "\n\t Magic energy spent: " + magicEnergySpent + "\n"
                 ;
     }
 }
