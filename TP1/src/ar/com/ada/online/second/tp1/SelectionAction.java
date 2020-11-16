@@ -11,12 +11,9 @@ public class SelectionAction {
         int option;
         boolean aux = true;
         do {
-            System.out.println("Digitize what character you want");
-            System.out.println("1- Wizard");
-            System.out.println("2- Elf");
+            System.out.printf("Digitize what character you want to be \n 1 - Wizard \n 2 - Elf");
             System.out.print("Option: ");
             option = keyboard.nextInt();
-
 
             switch (option) {
                 case 1:
@@ -41,7 +38,7 @@ public class SelectionAction {
 
         Wizard playerWizard = new Wizard();
         Scanner keyboard = new Scanner(System.in);
-        //selecciona mago
+        //selecciona nombre
         System.out.print("Choose and type your name: ");
         playerWizard.setName(keyboard.next());
         System.out.println("");
@@ -49,24 +46,21 @@ public class SelectionAction {
 
         //selecciona ubicacion
         do {
-            System.out.println("Select a location:");
-            System.out.println("1) Hogwarts");
-            System.out.println("2) Diagon Alley");
-            System.out.println("3) Hogsmeade");
+            System.out.println("Select a location: \n 1 - Hogwarts \n 2 - Diago Alley \n 3 - Hogsmeade");
             System.out.print("Option: ");
             option = keyboard.nextInt();
             switch (option) {
                 case 1:
                     aux = false;
-                    playerWizard.setLocation("1) Hogwarts");
+                    playerWizard.setLocation("1 - Hogwarts");
                     break;
                 case 2:
                     aux = false;
-                    playerWizard.setLocation("2) Diagon Alley");
+                    playerWizard.setLocation("2 - Diagon Alley");
                     break;
                 case 3:
                     aux = false;
-                    playerWizard.setLocation("3) Hogsmeade");
+                    playerWizard.setLocation("3 - Hogsmeade");
                     break;
                 default:
                     System.out.println("You must choose a valid option.");
@@ -92,7 +86,7 @@ public class SelectionAction {
 
     }
 
-    //    metodo de varitas
+    //    metodo de seleccion de varita
     public static Wand WandWizard() {
 
         List<Wand> nWand = new ArrayList<>();
@@ -129,30 +123,28 @@ public class SelectionAction {
         Elf playerElf = new Elf();
         int option;
         Scanner keyboard = new Scanner(System.in);
+        // selecciona nombre
         System.out.println("Choose and type your name: ");
         playerElf.setName(keyboard.next());
 
         //selecciona ubicacion
         boolean aux = true;
         do {
-            System.out.println("Select a location:");
-            System.out.println("1) Hogwarts");
-            System.out.println("2) Diagon Alley");
-            System.out.println("3) Hogsmeade");
+            System.out.println("Select a location: \n 1 - Hogwarts \n 2 - Diago Alley \n 3 - Hogsmeade");
             System.out.print("Option: ");
             option = keyboard.nextInt();
             switch (option) {
                 case 1:
                     aux = false;
-                    playerElf.setLocation("1) Hogwarts");
+                    playerElf.setLocation("1 - Hogwarts");
                     break;
                 case 2:
                     aux = false;
-                    playerElf.setLocation("2) Diagon Alley");
+                    playerElf.setLocation("2 - Diagon Alley");
                     break;
                 case 3:
                     aux = false;
-                    playerElf.setLocation("3) Hogsmeade");
+                    playerElf.setLocation("3 - Hogsmeade");
                     break;
                 default:
                     System.out.println("You must choose a valid option.");
@@ -189,7 +181,7 @@ public class SelectionAction {
         System.out.println("ATTENTION !!!");
         System.out.println();
         System.out.println("You can only choose six spells in total\n");
-        System.out.printf("Attacking Spells { \n" +
+        System.out.printf("Attacking Spells: \n" +
                 "1.	 BOMBARDA MAXIMA { attacks: 10, magic energy used: 5 }\n" +
                 "2.  DESMAIUS { attacks: 15, magic energy used: 10 } \n" +
                 "3.  EXPULSO { attacks: 20, magic energy used: 15 } \n" +
@@ -201,19 +193,19 @@ public class SelectionAction {
                 "9.	 INCENDIO { attacks: 25, magic energy used: 20 } \n" +
                 "10. AVADA KEDAVRA { attacks: 100, magic energy used: 90 } \n" +
                 "11. CRUCIATUS { attacks: 80, magic energy used: 70 } \n" +
-                "12. IMPERIUS { attacks: 90, magic energy used: 80} \n }\n"
+                "12. IMPERIUS { attacks: 90, magic energy used: 80 } \n\n"
         );
-        System.out.printf("Healing Spells { \n" +
+        System.out.printf("Healing Spells \n" +
                 "13. ANAPNEO { recovered life points: 20, magic energy used: 20 } \n" +
                 "14. BRAQUIAM EMENDO { recovered life points: 15, magic energy used: 18 }\n" +
                 "15. EPISKEY { recovered life points: 10, magic energy used: 15 }\n" +
                 "16. OSSIO DISPERSIMUS { recovered life points: 20, magic energy used: 18 }\n" +
                 "17. REPARIFORS { recovered life points: 10, magic energy used: 10 }\n" +
                 "18. FÉRULA { recovered life points: 15, magic energy used: 15 }\n" +
-                "19. VULNERA SANENTUR { recovered life points: 15, magic energy used: 15\n } \n"
+                "19. VULNERA SANENTUR { recovered life points: 15, magic energy used: 15 }\n \n"
         );
-        System.out.printf("Recovery Spells { \n" +
-                "20. RECUPERA { magic energy recovered: 15, magic energy used 3} \n } \n"
+        System.out.printf("Recovery Spells \n" +
+                "20. RECUPERA { magic energy recovered: 15, magic energy used 3 } \n \n"
         );
 
 
@@ -242,7 +234,7 @@ public class SelectionAction {
                         PlayerChosenSpells.add(new AttackSpell("REDUCTO", 12, 20));
                         break;
                     case 6:
-                        PlayerChosenSpells.add(new AttackSpell("CONFRIGNO",10,15));
+                        PlayerChosenSpells.add(new AttackSpell("CONFRIGNO", 10, 15));
                     case 7:
                         PlayerChosenSpells.add(new AttackSpell("DEPRIMO", 5, 10));
                         break;

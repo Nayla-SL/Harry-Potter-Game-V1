@@ -74,7 +74,7 @@ public class Elf extends Character {
     public String toString() {
 
         String output = String.format(
-                " Type of Character: %s \n Name: %s \n Location: %s \n Life span: %d \n Magic energy: %d \n Are you a free elf? %s \n Spells:",
+                "\n Type of Character: %s \n Name: %s \n Location: %s \n Life span: %d \n Magic energy: %d \n Are you a free elf? %s \n Spells:",
                 typeOfCharacter,
                 name,
                 location,

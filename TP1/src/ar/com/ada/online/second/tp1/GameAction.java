@@ -15,7 +15,8 @@ public class GameAction {
         if (userPlaying.isDeadOrAlive()) {
             System.out.println("This is your status now:");
             System.out.println(userPlaying);
-            System.out.println("Choose the spell you want to do:");
+            System.out.println();
+            System.out.print("Choose the spell you want to do: ");
             spellSelected = keyboard.nextInt();
             if (userPlaying.spells.get(spellSelected - 1) instanceof AttackSpell) {
                 AttackSpell attackSpell = (AttackSpell) userPlaying.spells.get(spellSelected - 1);
@@ -27,24 +28,21 @@ public class GameAction {
                     boolean aux = true;
                     do {
                         aux = true;
-                        System.out.println("Choose the location you want to throw it to: ");
-                        System.out.println("1) Hogwarts");
-                        System.out.println("2) Diagon Alley");
-                        System.out.println("3) Hogsmeade");
+                        System.out.println("Choose the location you want to throw your spell to: \n 1 - Hogwarts \n 2 - Diagon Alley \n 3 - Hogsmeade");
                         System.out.print("Option: ");
                         locationOpponentInt = keyboard.nextInt();
                         switch (locationOpponentInt) {
                             case 1:
                                 aux = false;
-                                locationOpponent = "1) Hogwarts";
+                                locationOpponent = "1 - Hogwarts";
                                 break;
                             case 2:
                                 aux = false;
-                                locationOpponent = "2) Diagon Alley";
+                                locationOpponent = "2 - Diagon Alley";
                                 break;
                             case 3:
                                 aux = false;
-                                locationOpponent = "3) Hogsmeade";
+                                locationOpponent = "3 - Hogsmeade";
                                 break;
                             default:
                                 System.out.println("You must choose a valid option.");
@@ -94,23 +92,23 @@ public class GameAction {
         System.out.println("Now you can change your location if you want.");
         boolean auxiliar = true;
         do {
-            System.out.println("1) Hogwarts");
-            System.out.println("2) Diagon Alley");
-            System.out.println("3) Hogsmeade");
+            System.out.println("1 - Hogwarts");
+            System.out.println("2 - Diagon Alley");
+            System.out.println("3 - Hogsmeade");
             System.out.print("Option: ");
             int locationPlayer = keyboard.nextInt();
             switch (locationPlayer) {
                 case 1:
                     auxiliar = false;
-                    userPlaying.setLocation("1) Hogwarts");
+                    userPlaying.setLocation("1 - Hogwarts");
                     break;
                 case 2:
                     auxiliar = false;
-                    userPlaying.setLocation("2) Diagon Alley");
+                    userPlaying.setLocation("2 - Diagon Alley");
                     break;
                 case 3:
                     auxiliar = false;
-                    userPlaying.setLocation("3) Hogsmeade");
+                    userPlaying.setLocation("3 - Hogsmeade");
                     break;
                 default:
                     System.out.println("\n You must choose a valid option.");

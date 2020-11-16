@@ -16,9 +16,6 @@ public class Spell {
 
 
 
-
-
-
     //Getter & Setter
 
 
