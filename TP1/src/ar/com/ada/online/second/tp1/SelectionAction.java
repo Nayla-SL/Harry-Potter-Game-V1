@@ -38,37 +38,11 @@ public class SelectionAction {
 
         Wizard playerWizard = new Wizard();
         Scanner keyboard = new Scanner(System.in);
-        //selecciona nombre
         System.out.print("Choose and type your name: ");
         playerWizard.setName(keyboard.next());
         System.out.println("");
         boolean aux = true;
-
-        //selecciona ubicacion
-        do {
-            System.out.println("Select a location: \n 1 - Hogwarts \n 2 - Diago Alley \n 3 - Hogsmeade");
-            System.out.print("Option: ");
-            option = keyboard.nextInt();
-            switch (option) {
-                case 1:
-                    aux = false;
-                    playerWizard.setLocation("1 - Hogwarts");
-                    break;
-                case 2:
-                    aux = false;
-                    playerWizard.setLocation("2 - Diagon Alley");
-                    break;
-                case 3:
-                    aux = false;
-                    playerWizard.setLocation("3 - Hogsmeade");
-                    break;
-                default:
-                    System.out.println("You must choose a valid option.");
-                    playerWizard.setLocation((String) null);
-                    break;
-            }
-        } while (aux);
-
+        playerWizard.setLocation(LocationSelection());
         System.out.println("");
 
         playerWizard.setLifeSpan(100);
@@ -126,34 +100,7 @@ public class SelectionAction {
         // selecciona nombre
         System.out.println("Choose and type your name: ");
         playerElf.setName(keyboard.next());
-
-        //selecciona ubicacion
-        boolean aux = true;
-        do {
-            System.out.println("Select a location: \n 1 - Hogwarts \n 2 - Diago Alley \n 3 - Hogsmeade");
-            System.out.print("Option: ");
-            option = keyboard.nextInt();
-            switch (option) {
-                case 1:
-                    aux = false;
-                    playerElf.setLocation("1 - Hogwarts");
-                    break;
-                case 2:
-                    aux = false;
-                    playerElf.setLocation("2 - Diagon Alley");
-                    break;
-                case 3:
-                    aux = false;
-                    playerElf.setLocation("3 - Hogsmeade");
-                    break;
-                default:
-                    System.out.println("You must choose a valid option.");
-                    playerElf.setLocation((String) null);
-                    break;
-            }
-        } while (aux);
-
-
+        playerElf.setLocation(LocationSelection());
         System.out.println("");
         playerElf.setTypeOfCharacter("Elf");
         playerElf.setLifeSpan(100);
@@ -168,6 +115,38 @@ public class SelectionAction {
         playerElf.configSpells();
         return playerElf;
 
+    }
+
+    public static String LocationSelection() {
+        boolean aux = true;
+        String auxLoc;
+        Scanner keyboard = new Scanner(System.in);
+        int option;
+        do {
+            System.out.println("Select a location: \n 1 - Hogwarts \n 2 - Diago Alley \n 3 - Hogsmeade");
+            System.out.print("Option: ");
+            option = keyboard.nextInt();
+            switch (option) {
+                case 1:
+                    aux = false;
+                    auxLoc = "1 - Hogwarts";
+                    break;
+                case 2:
+                    aux = false;
+                    auxLoc = "2 - Diagon Alley";
+                    break;
+                case 3:
+                    aux = false;
+                    auxLoc = "3 - Hogsmeade";
+                    break;
+                default:
+                    System.out.println("You must choose a valid option.");
+                    auxLoc = (String) null;
+                    break;
+            }
+        } while (aux);
+
+        return auxLoc;
     }
 
 

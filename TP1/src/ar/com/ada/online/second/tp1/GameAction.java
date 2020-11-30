@@ -25,31 +25,8 @@ public class GameAction {
                     userPlaying.setMagicEnergy(userPlaying.getMagicEnergy() + 10);
                 } else {
                     userPlaying.setMagicEnergy(userPlaying.getMagicEnergy() - attackSpell.getMagicEnergySpent());
-                    boolean aux = true;
-                    do {
-                        aux = true;
-                        System.out.println("Choose the location you want to throw your spell to: \n 1 - Hogwarts \n 2 - Diagon Alley \n 3 - Hogsmeade");
-                        System.out.print("Option: ");
-                        locationOpponentInt = keyboard.nextInt();
-                        switch (locationOpponentInt) {
-                            case 1:
-                                aux = false;
-                                locationOpponent = "1 - Hogwarts";
-                                break;
-                            case 2:
-                                aux = false;
-                                locationOpponent = "2 - Diagon Alley";
-                                break;
-                            case 3:
-                                aux = false;
-                                locationOpponent = "3 - Hogsmeade";
-                                break;
-                            default:
-                                System.out.println("You must choose a valid option.");
-                                locationOpponent = (String) null;
-                                break;
-                        }
-                    } while (aux);
+                    System.out.println("Choose the location you want to throw your spell to");
+                    locationOpponent = SelectionAction.LocationSelection();
                     if (locationOpponent == otherPlayer.getLocation()) {
                         otherPlayer.setLifeSpan(otherPlayer.getLifeSpan() - attackSpell.getDamageMade());
                         System.out.println("Great! You hit your target.");
@@ -57,71 +34,48 @@ public class GameAction {
                         System.out.println("Sorry, you did not hit your target.");
                     }
                 }
-            }
-            if (userPlaying.spells.get(spellSelected - 1) instanceof HealingSpell) {
-                HealingSpell healingSpell = (HealingSpell) userPlaying.spells.get(spellSelected - 1);
-                if (userPlaying.getMagicEnergy() < healingSpell.getMagicEnergySpent()) {
-                    System.out.println("Your magic energy is not enough for this spell. You loose your turn and gain +10 magic energy points.");
-                    userPlaying.setMagicEnergy(userPlaying.getMagicEnergy() + 10);
-                } else {
-                    userPlaying.setLifeSpan(userPlaying.getLifeSpan() + healingSpell.getLifeRecovered());
-                    userPlaying.setMagicEnergy(userPlaying.getMagicEnergy() - healingSpell.getMagicEnergySpent());
-                    if (userPlaying.getLifeSpan() > 100)
-                        userPlaying.setLifeSpan(100);
+
+                if (userPlaying.spells.get(spellSelected - 1) instanceof HealingSpell) {
+                    HealingSpell healingSpell = (HealingSpell) userPlaying.spells.get(spellSelected - 1);
+                    if (userPlaying.getMagicEnergy() < healingSpell.getMagicEnergySpent()) {
+                        System.out.println("Your magic energy is not enough for this spell. You loose your turn and gain +10 magic energy points.");
+                        userPlaying.setMagicEnergy(userPlaying.getMagicEnergy() + 10);
+                    } else {
+                        userPlaying.setLifeSpan(userPlaying.getLifeSpan() + healingSpell.getLifeRecovered());
+                        userPlaying.setMagicEnergy(userPlaying.getMagicEnergy() - healingSpell.getMagicEnergySpent());
+                        if (userPlaying.getLifeSpan() > 100)
+                            userPlaying.setLifeSpan(100);
+                    }
                 }
-            }
-            if (userPlaying.spells.get(spellSelected - 1) instanceof RecoverySpell) {
-                RecoverySpell recoverySpell = (RecoverySpell) userPlaying.spells.get(spellSelected - 1);
-                if (userPlaying.getMagicEnergy() < recoverySpell.getMagicEnergySpent()) {
-                    System.out.println("Your magic energy is not enough for this spell. You loose your turn and gain +10 magic energy points.");
-                    userPlaying.setMagicEnergy(userPlaying.getMagicEnergy() + 10);
-                } else {
-                    userPlaying.setMagicEnergy(userPlaying.getMagicEnergy() + recoverySpell.getEnergyRecovered() - recoverySpell.getMagicEnergySpent());
-                    if (userPlaying.getMagicEnergy() > 100)
-                        userPlaying.setMagicEnergy(100);
+                if (userPlaying.spells.get(spellSelected - 1) instanceof RecoverySpell) {
+                    RecoverySpell recoverySpell = (RecoverySpell) userPlaying.spells.get(spellSelected - 1);
+                    if (userPlaying.getMagicEnergy() < recoverySpell.getMagicEnergySpent()) {
+                        System.out.println("Your magic energy is not enough for this spell. You loose your turn and gain +10 magic energy points.");
+                        userPlaying.setMagicEnergy(userPlaying.getMagicEnergy() + 10);
+                    } else {
+                        userPlaying.setMagicEnergy(userPlaying.getMagicEnergy() + recoverySpell.getEnergyRecovered() - recoverySpell.getMagicEnergySpent());
+                        if (userPlaying.getMagicEnergy() > 100)
+                            userPlaying.setMagicEnergy(100);
+                    }
                 }
+            } else {
+                System.out.println(" Sorry, you are dead. \n You lost! \n The game ends.");
+                System.exit(0);
             }
-        } else {
-            System.out.println(" Sorry, you are dead. \n You lost! \n The game ends.");
-            System.exit(0);
-        }
-        if (otherPlayer.getLifeSpan() <= 0) {
-            System.out.println(" Your opponent is dead. \n You win! \n The game ends.");
-            System.exit(0);
-        }
-        System.out.println("Now you can change your location if you want.");
-        boolean auxiliar = true;
-        do {
-            System.out.println("1 - Hogwarts");
-            System.out.println("2 - Diagon Alley");
-            System.out.println("3 - Hogsmeade");
-            System.out.print("Option: ");
-            int locationPlayer = keyboard.nextInt();
-            switch (locationPlayer) {
-                case 1:
-                    auxiliar = false;
-                    userPlaying.setLocation("1 - Hogwarts");
-                    break;
-                case 2:
-                    auxiliar = false;
-                    userPlaying.setLocation("2 - Diagon Alley");
-                    break;
-                case 3:
-                    auxiliar = false;
-                    userPlaying.setLocation("3 - Hogsmeade");
-                    break;
-                default:
-                    System.out.println("\n You must choose a valid option.");
-                    userPlaying.setLocation((String) null);
-                    break;
+            if (otherPlayer.getLifeSpan() <= 0) {
+                System.out.println(" Your opponent is dead. \n You win! \n The game ends.");
+                System.exit(0);
             }
-        } while (auxiliar);
-        System.out.printf("Here's your status: \n Name: %s \n Location: %s \n Life span: %d \n Magic energy: %d \n",
-                userPlaying.getName(),
-                userPlaying.getLocation(),
-                userPlaying.getLifeSpan(),
-                userPlaying.getMagicEnergy()
-        );
+            System.out.println("Now you can change your location if you want.");
+
+            userPlaying.setLocation(SelectionAction.LocationSelection());
+            System.out.printf("Here's your status: \n Name: %s \n Location: %s \n Life span: %d \n Magic energy: %d \n",
+                    userPlaying.getName(),
+                    userPlaying.getLocation(),
+                    userPlaying.getLifeSpan(),
+                    userPlaying.getMagicEnergy()
+            );
+        }
     }
 }
 
