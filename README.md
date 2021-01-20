@@ -57,19 +57,31 @@ Reglas y Características del juego:
 
 
 Aclaraciones técnicas:
+
 ● las acciones (métodos) de los personajes son:
 ○ Atacar: lógica para seleccionar un hechizo para el ataque y la ubicación a donde se quiere realizar el ataque.
+
 ○ Sanación: lógica para seleccionar un hechizo para la sanación del personaje
+
 ○ Recuperación: lógica para seleccionar un hechizo para la recuperación de la energía mágica del personaje
+
 ○ Recibir ataque: lógica el nivel de daño de un hechizo y si este fue efectivo o no.
+
 ○ Está vivo: lógica que indica si el personaje aún sigue vivo.
+
 ○ Agregar hechizo: lógica agregar al listado de hechizos del personaje un hechizo seleccionado.
+
 ○ Estatus del personaje: lógica que muestra por pantalla el estatus del personaje: nivel de vida, ubicación, energía mágica, etc.
+
 ■ Es oscuro o libre: indica si el (mago es oscuro o no/ elfo el libre o no) 
 
 Dinámica del Juego:
 Al inciar el juego, debe tener este flujo:
+
 ● Selección de los Personajes: este proceso se hará por turnos, en los cuales, el juego debe mostrar los personajes disponibles para la elección y solicitar al usuario que seleccione uno de ellos. En caso que se haya elegido un mago, se debe mostrar el listado de varitas disponibles en el juego y luego qué varita lo eligió para el combate
+
 ● Selección de los Hechizos: este proceso se hará por turnos, en los cuales, el juego debe mostrar los hechizos disponibles para la elección y solicitar al usuario que seleccione los que desea usar para el duelo.
+
 ● Inicio del juego: Es un ciclo que durará hasta que uno de los jugadores muera. y se realizará por turnos. En cada turno, el jugador debe ver el estado de su personaje y hacer la elección del hechizo que desea realizar y todo lo que conlleva este hechizo. Luego de cada turno, se debe validar si el oponente ya está muerto, en caso afirmativo, se debe terminar el ciclo y por ende el proceso
+
 ● Mostrar ganador: Muestra por pantalla el nombre del jugador que ganó y el estado de los personajes de la partida (ambos personajes).
